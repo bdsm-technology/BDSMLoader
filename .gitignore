@@ -1,0 +1,7 @@
+*
+!.circleci
+!/.gitignore
+!/.clang-format
+!/*.cpp
+!/*.h
+!/Makefile
