@@ -169,9 +169,10 @@ EXPORT void deleteString(std::string *str) { str->~basic_string(); }
 struct Executor {
   Executor() {
     if (fs::canonical("/proc/self/exe").filename() != "bedrock_server") return;
-    std::cout << "Loading mods..." << std::endl;
+    std::cout << "Loading native mods..." << std::endl;
     loadModsFromDirectory("core");
     loadModsFromDirectory("mods");
+    std::cout << "Loading clr mod: BDSM.Net..." << std::endl;
     auto fn = getCLR().fetchDelegate<void()>("BDSM.Net", "BDSM.Net.Bridge", "Init");
     if (fn) fn();
   }
